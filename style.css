@@ -696,8 +696,10 @@ body {
 
     .top-text {
         font-size: 22px;
-        top: 3%;
+        top: 25%;
+        left:28%;
     }
+
 
     .image-card {
         width: 180px;
