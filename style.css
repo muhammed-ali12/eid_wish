@@ -464,7 +464,8 @@ body {
 
 /* 🌹 Falling Rose Petals */
 .rose-petal {
-    position: fixed; /* fixed so it doesn’t jump with scrolling */
+    position: fixed;
+    /* fixed so it doesn’t jump with scrolling */
     width: 30px;
     opacity: 0.9;
     pointer-events: none;
@@ -481,5 +482,237 @@ body {
     100% {
         transform: translateY(110vh) rotate(360deg);
         opacity: 0;
+    }
+}
+
+
+
+/* 🌟 RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+
+    /* Lock Box */
+    .lock-box {
+        width: 90%;
+        padding: 30px 20px;
+    }
+
+    .lock {
+        font-size: 45px;
+    }
+
+    .lock-box h2 {
+        font-size: 18px;
+    }
+
+    /* Input field */
+    .input-group input {
+        padding: 10px 35px 10px 12px;
+    }
+
+    .eye {
+        font-size: 14px;
+        right: 10px;
+    }
+
+    /* Unlock button */
+    .unlock-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    /* Main Eid text */
+    .eid-text {
+        font-size: 30px;
+    }
+
+    .center-text {
+        top: 40%;
+        left: 30%;
+    }
+
+    .top-text {
+        top: 18%;
+        left: 31%;
+        font-size: 28px;
+    }
+
+    /* Image card */
+    .image-card {
+        width: 200px;
+        height: 280px;
+        margin: 15px auto;
+    }
+
+    /* Modal */
+    .modal-content {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .modal-content .close {
+        font-size: 22px;
+    }
+
+    /* Read message button */
+    .message-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    /* Error message */
+    #errorMsg {
+        font-size: 12px;
+    }
+
+    /* Stars background - optional minor tweak */
+    .star {
+        width: 1.5px !important;
+        height: 1.5px !important;
+    }
+
+    /* Rose petals smaller for mobile */
+    .rose-petal {
+        width: 20px !important;
+    }
+}
+/* 🌟 TABLET DESIGN */
+@media (min-width: 481px) and (max-width: 768px) {
+    /* Lock Box */
+    .lock-box {
+        width: 85%;
+        padding: 30px 25px;
+    }
+
+    .lock {
+        font-size: 48px;
+    }
+
+    .lock-box h2 {
+        font-size: 20px;
+    }
+
+    /* Input field */
+    .input-group input {
+        padding: 10px 38px 10px 14px;
+        font-size: 15px;
+    }
+
+    .eye {
+        font-size: 15px;
+        right: 12px;
+    }
+
+    /* Unlock button */
+    .unlock-btn {
+        padding: 11px;
+        font-size: 15px;
+    }
+
+    /* Main Eid text */
+    .eid-text {
+        font-size: 32px;
+    }
+
+    .center-text {
+        top: 42%;
+        left: 35%;
+    }
+
+    .top-text {
+        top: 16%;
+        left: 34%;
+        font-size: 30px;
+    }
+
+    /* Image card */
+    .image-card {
+        width: 220px;
+        height: 300px;
+        margin: 18px auto;
+    }
+
+    /* Modal */
+    .modal-content {
+        max-width: 85%;
+        padding: 25px;
+    }
+
+    .modal-content .close {
+        font-size: 23px;
+    }
+
+    /* Read message button */
+    .message-btn {
+        padding: 11px 22px;
+        font-size: 14px;
+    }
+
+    /* Error message */
+    #errorMsg {
+        font-size: 13px;
+    }
+
+    /* Stars background */
+    .star {
+        width: 1.8px !important;
+        height: 1.8px !important;
+    }
+
+    /* Rose petals for tablet */
+    .rose-petal {
+        width: 18px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .lock-box {
+        width: 95%;
+        padding: 25px 15px;
+    }
+
+    .lock {
+        font-size: 40px;
+    }
+
+    .lock-box h2 {
+        font-size: 16px;
+    }
+
+    .input-group input {
+        padding: 8px 30px 8px 10px;
+        font-size: 14px;
+    }
+
+    .unlock-btn {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .eid-text {
+        font-size: 24px;
+    }
+
+    .top-text {
+        font-size: 22px;
+        top: 3%;
+    }
+
+    .image-card {
+        width: 180px;
+        height: 250px;
+    }
+
+    .message-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+
+    .modal-content {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .rose-petal {
+        width: 15px !important;
     }
 }
