@@ -1,6 +1,6 @@
 function checkPassword() {
     const password = document.getElementById("password").value;
-    const correctPassword = "eid2026";
+    const correctPassword = "manoali";
     const errorMsg = document.getElementById("errorMsg");
     const lockIcon = document.getElementById("lockIcon");
     const lockBox = document.querySelector(".lock-box");
@@ -29,7 +29,20 @@ function checkPassword() {
 }
 
 /* ✨ Typing Effect */
-const text = "Eid Mubarak 🌙\nMay your life be filled with happiness, peace, and countless blessings.";
+// const text = "Eid Mubarak 🌙\nMay your life be filled with happiness, peace, and countless blessings.";
+const text = `Eid Mubarak 🌙
+May your life be filled with happiness, peace, and countless blessings.
+I Really Love You So Much Meri Baby 💋
+Meri Happiness 😊 Meri Jaan ❤️
+Meri Dunya 🌍 Meri Shona Baby 🦋
+I Really Really Miss You
+Sooo Much My Love 😘
+🫠🌸 Mera chuzooo 🌸🫠
+My Love 🤍 My Life 🫂 My Sukoon 🥺
+I Really Really Like Youuuu 🎀💕
+Mere Liya Sab Kuch Hooo Ap 👀🥰
+I Really Really Love, Miss, Hug, Kiss You
+🤍🫀 Meri Zindagi 🫀🤍`;
 
 let i = 0;
 
@@ -59,7 +72,19 @@ function startTyping() {
     readBtn.onclick = () => {
         const modal = document.getElementById("messageModal");
         const modalMsg = document.getElementById("modalMessage");
-        modalMsg.innerText = "Eid Mubarak 🌙\nMay your life be filled with happiness, peace, and countless blessings.";
+        modalMsg.innerText = `Eid Mubarak 🌙
+May your life be filled with happiness, peace, and countless blessings.
+I Really Love You So Much Meri Baby 💋
+Meri Happiness 😊 Meri Jaan ❤️
+Meri Dunya 🌍 Meri Shona Baby 🦋
+I Really Really Miss You
+Sooo Much My Love 😘
+🫠🌸 Mera chuzooo 🌸🫠
+My Love 🤍 My Life 🫂 My Sukoon 🥺
+I Really Really Like Youuuu 🎀💕
+Mere Liya Sab Kuch Hooo Ap 👀🥰
+I Really Really Love, Miss, Hug, Kiss You
+🤍🫀 Meri Zindagi 🫀🤍`;
         modal.classList.remove("hidden");
         modal.classList.add("show");
     }
