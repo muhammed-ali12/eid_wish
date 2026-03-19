@@ -6,7 +6,6 @@ function checkPassword() {
     const lockBox = document.querySelector(".lock-box");
 
     if (password === correctPassword) {
-
         // 🔓 Change icon
         lockIcon.innerHTML = "🔓";
 
@@ -42,24 +41,21 @@ function startTyping() {
     // Step 1: Show Eid text in center
     eidText.classList.add("show");
 
-    // Step 2: After 5 seconds, move Eid text to top
+    // Step 2: After 5 seconds, hide Eid text and show image directly
     setTimeout(() => {
-        eidText.classList.remove("center-text");
-        eidText.classList.add("top-text");
+        eidText.classList.remove("show"); // hide the text
+        eidText.style.display = "none"; // completely remove it from layout
 
-        // Step 3: After text moves (~1s), animate image
+        imageCard.classList.add("show"); // show image
+
+        // Step 3: After image animation, show button
         setTimeout(() => {
-            imageCard.classList.add("show");
-
-            // Step 4: After image animation, show button
-            setTimeout(() => {
-                readBtn.classList.remove("hidden");
-                readBtn.classList.add("show");
-            }, 800); // wait for image animation
-        }, 1000); // wait for text transition
+            readBtn.classList.remove("hidden");
+            readBtn.classList.add("show");
+        }, 800); // wait for image animation
     }, 5000);
 
-    // Step 5: Button click -> show modal
+    // Step 4: Button click -> show modal
     readBtn.onclick = () => {
         const modal = document.getElementById("messageModal");
         const modalMsg = document.getElementById("modalMessage");
@@ -76,7 +72,6 @@ function closeModal() {
     modal.classList.remove("show");
 }
 
-
 function togglePassword() {
     const input = document.getElementById("password");
     const icon = document.getElementById("eyeIcon");
@@ -92,7 +87,6 @@ function togglePassword() {
     }
 }
 
-
 // Generate 100+ random stars for more density
 const starsContainer = document.querySelector('.stars');
 for (let i = 0; i < 120; i++) {
@@ -107,24 +101,23 @@ for (let i = 0; i < 120; i++) {
     starsContainer.appendChild(star);
 }
 
-
-// 🌹 Generate falling rose petals
 // 🌹 Generate falling rose petals
 function createRosePetals() {
     const body = document.body;
-    const petalsCount = 30; // number of petals
+    const petalsCount = 30;
 
     for (let i = 0; i < petalsCount; i++) {
         const petal = document.createElement('img');
-        petal.src = 'rose.png'; // path to your rose image
+        petal.src = 'rose.png';
         petal.className = 'rose-petal';
-        petal.style.top = '-50px'; // start slightly above the screen
+        petal.style.top = '-50px';
         petal.style.left = Math.random() * 100 + 'vw';
-        petal.style.animationDuration = (Math.random() * 5 + 5) + 's'; // 5-10s
+        petal.style.animationDuration = (Math.random() * 5 + 5) + 's';
         petal.style.animationDelay = Math.random() * 5 + 's';
         body.appendChild(petal);
     }
 }
+
 // Call the function after unlocking
 document.addEventListener('DOMContentLoaded', () => {
     createRosePetals();
