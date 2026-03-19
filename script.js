@@ -74,9 +74,9 @@ function startTyping() {
         const modalMsg = document.getElementById("modalMessage");
         modalMsg.innerText = `Eid Mubarak 🌙
 May your life be filled with happiness, peace, and countless blessings.
-I Really Love You So Much Meri Baby 💋
+I Really Love You So Much Mera chuzooo 💋
 Meri Happiness 😊 Meri Jaan ❤️
-Meri Dunya 🌍 Meri Shona Baby 🦋
+Meri Dunya 🌍 Mera chuzooo 🦋
 I Really Really Miss You
 Sooo Much My Love 😘
 🫠🌸 Mera chuzooo 🌸🫠
