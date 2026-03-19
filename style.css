@@ -525,7 +525,7 @@ body {
         font-size: 30px;
     }
 
-    .center-text {
+    /* .center-text {
         top: 40%;
         left: 30%;
     }
@@ -534,14 +534,32 @@ body {
         top: 18%;
         left: 31%;
         font-size: 28px;
-    }
+    } */
 
     /* Image card */
     .image-card {
         width: 200px;
         height: 280px;
-        margin: 15px auto;
+        /* margin: 15px auto; */
+        margin-top: 0;
+        /* remove extra gap */
     }
+
+
+    .center-text,
+    .top-text {
+        position: relative;
+        /* allow text to flow naturally */
+        top: auto;
+        left: auto;
+        transform: none;
+        text-align: center;
+        margin-bottom: 15px;
+        /* adjust gap between text and image */
+        font-size: 28px;
+        /* scale text for mobile */
+    }
+
 
     /* Modal */
     .modal-content {
@@ -575,8 +593,10 @@ body {
         width: 20px !important;
     }
 }
+
 /* 🌟 TABLET DESIGN */
 @media (min-width: 481px) and (max-width: 768px) {
+
     /* Lock Box */
     .lock-box {
         width: 85%;
