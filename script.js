@@ -6,76 +6,21 @@ function checkPassword() {
     const lockBox = document.querySelector(".lock-box");
 
     if (password === correctPassword) {
-
-        // 🔓 Change icon
         lockIcon.innerHTML = "🔓";
-
-        // ✨ Add glow animation
         lockBox.classList.add("unlocking");
 
-        // 🎬 Smooth transition
         setTimeout(() => {
             document.getElementById("lockScreen").classList.remove("active");
-
             setTimeout(() => {
                 document.getElementById("mainContent").classList.add("active");
                 startTyping();
             }, 200);
-
         }, 800);
 
     } else {
         errorMsg.innerText = "Wrong password!";
     }
 }
-
-/* ✨ Typing Effect */
-const text = "Eid Mubarak 🌙\nMay your life be filled with happiness, peace, and countless blessings.";
-
-let i = 0;
-
-function startTyping() {
-    const eidText = document.querySelector(".eid-text");
-    const imageCard = document.querySelector(".image-card");
-    const readBtn = document.getElementById("readMessageBtn");
-
-    // Step 1: Show Eid text in center
-    eidText.classList.add("show");
-
-    // Step 2: After 5 seconds, move Eid text to top
-    setTimeout(() => {
-        eidText.classList.remove("center-text");
-        eidText.classList.add("top-text");
-
-        // Step 3: After text moves (~1s), animate image
-        setTimeout(() => {
-            imageCard.classList.add("show");
-
-            // Step 4: After image animation, show button
-            setTimeout(() => {
-                readBtn.classList.remove("hidden");
-                readBtn.classList.add("show");
-            }, 800); // wait for image animation
-        }, 1000); // wait for text transition
-    }, 5000);
-
-    // Step 5: Button click -> show modal
-    readBtn.onclick = () => {
-        const modal = document.getElementById("messageModal");
-        const modalMsg = document.getElementById("modalMessage");
-        modalMsg.innerText = "Eid Mubarak 🌙\nMay your life be filled with happiness, peace, and countless blessings.";
-        modal.classList.remove("hidden");
-        modal.classList.add("show");
-    }
-}
-
-// Close modal
-function closeModal() {
-    const modal = document.getElementById("messageModal");
-    modal.classList.add("hidden");
-    modal.classList.remove("show");
-}
-
 
 function togglePassword() {
     const input = document.getElementById("password");
@@ -92,8 +37,53 @@ function togglePassword() {
     }
 }
 
+function startTyping() {
+    const eidText = document.querySelector(".eid-text");
+    const imageCard = document.querySelector(".image-card");
+    const readBtn = document.getElementById("readMessageBtn");
 
-// Generate 100+ random stars for more density
+    const message = "Eid Mubarak 🌙\nMay your life be filled with happiness, peace, and countless blessings.";
+    let index = 0;
+
+    eidText.innerText = "";
+    eidText.classList.add("show", "center-text");
+
+    const typingInterval = setInterval(() => {
+        eidText.innerText = message.slice(0, index);
+        index++;
+        if (index > message.length) clearInterval(typingInterval);
+    }, 50);
+
+    setTimeout(() => {
+        eidText.classList.remove("center-text");
+        eidText.classList.add("top-text");
+
+        setTimeout(() => {
+            imageCard.classList.add("show");
+
+            setTimeout(() => {
+                readBtn.classList.remove("hidden");
+                readBtn.classList.add("show");
+            }, 500);
+        }, 1000);
+    }, 5000);
+
+    readBtn.onclick = () => {
+        const modal = document.getElementById("messageModal");
+        const modalMsg = document.getElementById("modalMessage");
+        modalMsg.innerText = message;
+        modal.classList.remove("hidden");
+        modal.classList.add("show");
+    }
+}
+
+function closeModal() {
+    const modal = document.getElementById("messageModal");
+    modal.classList.add("hidden");
+    modal.classList.remove("show");
+}
+
+// 🌟 Stars
 const starsContainer = document.querySelector('.stars');
 for (let i = 0; i < 120; i++) {
     const star = document.createElement('div');
@@ -107,25 +97,21 @@ for (let i = 0; i < 120; i++) {
     starsContainer.appendChild(star);
 }
 
-
-// 🌹 Generate falling rose petals
-// 🌹 Generate falling rose petals
+// 🌹 Rose petals
 function createRosePetals() {
     const body = document.body;
-    const petalsCount = 30; // number of petals
+    const petalsCount = 30;
 
     for (let i = 0; i < petalsCount; i++) {
         const petal = document.createElement('img');
-        petal.src = 'rose.png'; // path to your rose image
+        petal.src = 'rose.png';
         petal.className = 'rose-petal';
-        petal.style.top = '-50px'; // start slightly above the screen
+        petal.style.top = '-50px';
         petal.style.left = Math.random() * 100 + 'vw';
-        petal.style.animationDuration = (Math.random() * 5 + 5) + 's'; // 5-10s
+        petal.style.animationDuration = (Math.random() * 5 + 5) + 's';
         petal.style.animationDelay = Math.random() * 5 + 's';
         body.appendChild(petal);
     }
 }
-// Call the function after unlocking
-document.addEventListener('DOMContentLoaded', () => {
-    createRosePetals();
-});
+
+document.addEventListener('DOMContentLoaded', () => { createRosePetals(); });
