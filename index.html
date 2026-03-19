@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid Surprise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- 🌟 Stars Background -->
+    <div class="stars"></div>
+
+    <!-- 🔐 LOCK SCREEN -->
+    <div id="lockScreen" class="screen active">
+        <div class="lock-box">
+            <div id="lockIcon" class="lock">🔒</div>
+            <h2>A Special Eid Surprise Awaits...</h2>
+
+            <!-- INPUT WITH EYE ICON -->
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Enter Password">
+                <span class="eye" onclick="togglePassword()">
+                    <i id="eyeIcon" class="fa-solid fa-eye"></i>
+                </span>
+            </div>
+
+            <!-- BUTTON BELOW -->
+            <button class="unlock-btn" onclick="checkPassword()">Unlock</button>
+
+            <p id="errorMsg"></p>
+        </div>
+    </div>
+
+
+    <!-- 🌙 MAIN EID CONTENT -->
+    <div id="mainContent" class="screen">
+        <h1 class="eid-text center-text">Eid Mubarak 🌙</h1>
+
+        <!-- Image card (hidden initially) -->
+        <div class="image-card hidden">
+            <div class="image-overlay"></div>
+            <img src="image.jpg" alt="Person Image">
+            <div class="shine"></div>
+        </div>
+
+        <!-- Button to read message (hidden initially) -->
+        <button id="readMessageBtn" class="message-btn hidden">Read My Message</button>
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="messageModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,485 @@
+/* 🌙 GENERAL */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0B1D3A, #000814);
+    color: #fff;
+    overflow: hidden;
+}
+
+/* SCREEN CONTROL */
+.screen {
+    display: none;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* 🔐 LOCK BOX (UPGRADED) */
+.lock-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow:
+        0 0 20px rgba(212, 175, 55, 0.2),
+        0 0 60px rgba(212, 175, 55, 0.1);
+    text-align: center;
+    width: 400px;
+}
+
+/* LOCK ICON GLOW */
+.lock {
+    font-size: 55px;
+    margin-bottom: 10px;
+    animation: glowLock 2s infinite alternate;
+}
+
+@keyframes glowLock {
+    from {
+        text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    }
+
+    to {
+        text-shadow: 0 0 25px rgba(212, 175, 55, 1);
+    }
+}
+
+/* INPUT GROUP */
+.input-group {
+    position: relative;
+    margin-top: 20px;
+}
+
+/* INPUT FIELD */
+.input-group input {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    border-radius: 30px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* INPUT GLOW ON FOCUS */
+.input-group input:focus {
+    border-color: #D4AF37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+}
+
+/* EYE ICON */
+.eye {
+    position: absolute;
+    right: 12px;
+    top: 45%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #D4AF37;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.eye:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+.input-group input:focus+.eye i {
+    transform: scale(1.1);
+}
+
+
+/* BUTTON (UPGRADED) */
+.unlock-btn {
+    margin-top: 25px;
+    padding: 12px;
+    width: 100%;
+    border-radius: 30px;
+    border: 2px solid #D4AF37;
+    background: transparent;
+    color: #D4AF37;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* BUTTON HOVER EFFECT */
+.unlock-btn:hover {
+    background: #D4AF37;
+    color: #000;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+}
+
+/* ERROR MESSAGE */
+#errorMsg {
+    margin-top: 10px;
+    color: #ff4d4d;
+    font-size: 14px;
+}
+
+
+/* 🎬 SCREEN TRANSITIONS */
+.screen {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.8s ease;
+    pointer-events: none;
+}
+
+.screen.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+}
+
+/* 🔓 UNLOCK GLOW EFFECT */
+.unlocking {
+    animation: unlockGlow 0.8s ease;
+}
+
+@keyframes unlockGlow {
+    0% {
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(212, 175, 55, 0.8);
+    }
+
+    100% {
+        box-shadow: 0 0 0px rgba(212, 175, 55, 0);
+    }
+}
+
+/* 🌙 MAIN CONTENT */
+#mainContent {
+    transition: all 1s ease;
+}
+
+/* Stagger animation */
+#mainContent .eid-text,
+#mainContent .image-box,
+#mainContent #message {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: reveal 1s forwards;
+}
+
+#mainContent .eid-text {
+    animation-delay: 0.3s;
+}
+
+#mainContent .image-box {
+    animation-delay: 0.6s;
+}
+
+#mainContent #message {
+    animation-delay: 1s;
+}
+
+@keyframes reveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.eid-text {
+    color: #D4AF37;
+    font-size: 40px;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* IMAGE */
+/* 🌟 IMAGE CARD (PREMIUM) */
+.image-card {
+    position: relative;
+    width: 250px;
+    height: 350px;
+    margin: 20px auto;
+    border-radius: 25px;
+    overflow: hidden;
+    border: 2px solid #D4AF37;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.6), 0 10px 40px rgba(212, 175, 55, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    /* animation: fadeIn 2s ease-in-out; */
+}
+
+/* IMAGE INSIDE CARD */
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* HOVER ZOOM EFFECT */
+.image-card:hover img {
+    transform: scale(1.05);
+}
+
+/* SHINE EFFECT */
+.image-card .shine {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 60%);
+    transform: rotate(25deg);
+    pointer-events: none;
+    animation: shineMove 2.5s infinite;
+}
+
+
+
+/* ANIMATION FOR SHINE */
+@keyframes shineMove {
+    0% {
+        transform: translateX(-100%) rotate(25deg);
+    }
+
+    50% {
+        transform: translateX(100%) rotate(25deg);
+    }
+
+    100% {
+        transform: translateX(-100%) rotate(25deg);
+    }
+}
+
+/* IMAGE OVERLAY FOR DARK EFFECT */
+.image-card .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+    pointer-events: none;
+}
+
+/* MESSAGE */
+#message {
+    margin-top: 20px;
+    font-size: 18px;
+    max-width: 300px;
+    line-height: 1.6;
+}
+
+/* ✨ ANIMATIONS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 🌟 STARS BACKGROUND WITH RANDOM TWINKLE */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    overflow: hidden;
+}
+
+/* Generate multiple stars using box-shadow for better effect */
+.stars::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    box-shadow:
+        10px 20px white, 30px 50px white, 60px 80px white, 90px 100px white,
+        120px 30px white, 150px 70px white, 180px 90px white, 210px 50px white,
+        240px 120px white, 270px 150px white, 300px 200px white, 330px 250px white,
+        360px 300px white, 390px 350px white, 420px 400px white, 450px 450px white,
+        480px 480px white, 510px 520px white, 540px 550px white, 570px 580px white,
+        600px 600px white, 630px 650px white, 660px 680px white, 690px 700px white;
+    animation: moveStars 15s linear infinite;
+}
+
+/* TWINKLING INDIVIDUAL STARS USING MULTIPLE ELEMENTS */
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 2s infinite;
+}
+
+/* TWINKLE ANIMATION WITH RANDOM DURATION */
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+}
+
+/* MOVE STARS UP */
+@keyframes moveStars {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-150px);
+    }
+}
+
+
+/* Center Eid text initially */
+/* Center Eid text initially */
+.center-text {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: #D4AF37;
+    text-shadow: 0 0 20px #D4AF37, 0 0 40px #FFD700;
+    transition: all 1s ease-in-out;
+    /* smooth move */
+}
+
+/* Move Eid text to top with animation */
+.top-text {
+    position: absolute;
+    top: 10%;
+    /* move to top */
+    left: 41%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    transition: all 1s ease-in-out;
+    /* smooth transition */
+}
+
+/* Image card animation */
+.image-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.image-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hidden elements */
+
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+
+/* Show elements */
+.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+/* Read message button */
+.message-btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border-radius: 25px;
+    border: 2px solid #D4AF37;
+    background: transparent;
+    color: #D4AF37;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.message-btn:hover {
+    background: #D4AF37;
+    color: #000;
+}
+
+/* Popup modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background: #0B1D3A;
+    color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 25px;
+    cursor: pointer;
+    color: #D4AF37;
+}
+
+
+/* 🌹 Falling Rose Petals */
+.rose-petal {
+    position: fixed; /* fixed so it doesn’t jump with scrolling */
+    width: 30px;
+    opacity: 0.9;
+    pointer-events: none;
+    animation: fallRose linear infinite;
+    z-index: 10;
+}
+
+@keyframes fallRose {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
